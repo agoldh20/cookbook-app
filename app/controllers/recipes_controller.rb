@@ -1,6 +1,17 @@
-class RecipesController < ApplicationController
-  def one_recipe_action
-    @recipe = Recipe.first
-    render 'one_recipe_page.html.erb'
-  end
+ class RecipesController < ApplicationController
+  def index
+
+    if session[:count] == nil
+      session[:count] = 0
+    end
+
+    session[:count] += 1
+    @counter = session[:count]
+
+
+
+
+
+    @recipes = Recipe.all
+ 
 end
